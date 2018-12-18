@@ -1,7 +1,8 @@
-package com.gshockv.developerslife
+package com.gshockv.developerslife.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.gshockv.developerslife.R
 
 class MainActivity : AppCompatActivity() {
 
