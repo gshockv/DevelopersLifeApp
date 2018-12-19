@@ -7,14 +7,14 @@
 
     <fragment
             android:id="@+id/streamFragment"
-            android:name="com.gshockv.developerslife.ui.StreamFragment"
+            android:name="com.gshockv.developerslife.ui.stream.StreamFragment"
             android:label="fragment_stream"
             tools:layout="@layout/fragment_stream">
         <action android:id="@+id/actionShowDetails"
                 app:destination="@id/detailsFragment"/>
     </fragment>
     <fragment android:id="@+id/detailsFragment"
-              android:name="com.gshockv.developerslife.ui.DetailsFragment"
+              android:name="com.gshockv.developerslife.ui.details.DetailsFragment"
               android:label="fragment_details"
               tools:layout="@layout/fragment_details"/>
 </navigation>

@@ -1,4 +1,4 @@
-package com.gshockv.developerslife.ui
+package com.gshockv.developerslife.ui.details
 
 
 import android.os.Bundle
