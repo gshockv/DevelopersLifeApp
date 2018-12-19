@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#efebe9</color>
     <color name="colorAccent">#14703b</color>
     <color name="colorSurface">#f4f5f0</color>
+
+    <color name="menuCheckedColor">#a66d0f8f</color>
+    <color name="menuIconDefaultTint">#a63e3e3e</color>
+
+    <color name="menuItemTextColor">#d91d1d1d</color>
+    <color name="white">#ffffff</color>
+    <color name="colorItemChecked">#40e4bd62</color>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MenuItemView">
+        <attr name="menuIcon" format="reference" />
+        <attr name="menuTitle" format="reference" />
+        <attr name="menuItemChecked" format="boolean" />
+        <attr name="menuCheckedTint" format="color" />
+    </declare-styleable>
+</resources>

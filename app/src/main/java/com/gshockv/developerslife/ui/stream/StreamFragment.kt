@@ -11,14 +11,33 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.gshockv.developerslife.R
 import com.gshockv.developerslife.data.StreamType
+import kotlinx.android.synthetic.main.fragment_stream.*
 
 class StreamFragment : Fragment() {
     private val viewModel : StreamViewModel by lazy {
         ViewModelProviders.of(activity!!).get(StreamViewModel::class.java)
     }
 
+    private var currentStream = StreamType.LATEST
+
+    private val menuDialog = BottomNavigationDialog.newInstance().apply {
+        onStreamSelected = { type ->
+            currentStream = type
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_stream, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        bottomAppBar.setNavigationOnClickListener {
+            menuDialog.apply {
+                selectedStream = currentStream
+            }.show(fragmentManager!!, BottomNavigationDialog.TAG)
+        }
     }
 
     override fun onResume() {

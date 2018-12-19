@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@drawable/main_menu_background">
+
+        <com.gshockv.developerslife.ui.view.MenuItemView
+                android:id="@+id/menuItemLatest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menuIcon="@drawable/ic_menu_latest"
+                app:menuTitle="@string/menu_item_latest"/>
+        <com.gshockv.developerslife.ui.view.MenuItemView
+                android:id="@+id/menuItemHot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menuIcon="@drawable/ic_menu_hot"
+                app:menuTitle="@string/menu_item_hot"/>
+        <com.gshockv.developerslife.ui.view.MenuItemView
+                android:id="@+id/menuItemTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menuIcon="@drawable/ic_menu_top"
+                app:menuTitle="@string/menu_item_top"/>
+        <com.gshockv.developerslife.ui.view.MenuItemView
+                android:id="@+id/menuItemRandom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menuIcon="@drawable/ic_menu_random"
+                app:menuTitle="@string/menu_item_random"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
