@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.gshockv.developerslife.R
 import com.gshockv.developerslife.data.StreamType
+import com.gshockv.developerslife.data.header
 import kotlinx.android.synthetic.main.fragment_stream.*
 
 class StreamFragment : Fragment() {
@@ -18,11 +19,9 @@ class StreamFragment : Fragment() {
         ViewModelProviders.of(activity!!).get(StreamViewModel::class.java)
     }
 
-    private var currentStream = StreamType.LATEST
-
     private val menuDialog = BottomNavigationDialog.newInstance().apply {
         onStreamSelected = { type ->
-            currentStream = type
+            loadStream(type)
         }
     }
 
@@ -35,7 +34,7 @@ class StreamFragment : Fragment() {
 
         bottomAppBar.setNavigationOnClickListener {
             menuDialog.apply {
-                selectedStream = currentStream
+                selectedStream = viewModel.currentStreamType()
             }.show(fragmentManager!!, BottomNavigationDialog.TAG)
         }
     }
@@ -43,9 +42,15 @@ class StreamFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        viewModel.loadStream(StreamType.LATEST).observe(this, Observer { stream ->
+        loadStream(viewModel.currentStreamType())
+    }
+
+    private fun loadStream(type: StreamType) {
+        textViewHeader.setText(type.header)
+
+        viewModel.loadStream(type).observe(this, Observer { stream ->
             stream?.let {
-                Toast.makeText(context, "LATEST loaded", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "$type loaded", Toast.LENGTH_SHORT).show()
                 it.items.forEach { item ->
                     Log.d("GifItem", "Item: $item")
                 }

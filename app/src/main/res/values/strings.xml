@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">DevelopersLife</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_item_latest">Свежие</string>
     <string name="menu_item_hot">Горячие</string>
     <string name="menu_item_top">Лучшие</string>
     <string name="menu_item_random">Мне повезет</string>
+
+    <string name="header_latest">Свежие</string>
+    <string name="header_hot">Горячие</string>
+    <string name="header_top">Лучшие</string>
+    <string name="header_random">Случайно</string>
 </resources>
