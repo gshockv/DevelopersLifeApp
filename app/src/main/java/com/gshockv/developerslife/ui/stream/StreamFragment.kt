@@ -10,11 +10,17 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.gshockv.developerslife.R
 import com.gshockv.developerslife.data.GifStream
 import com.gshockv.developerslife.data.StreamType
 import com.gshockv.developerslife.data.header
 import com.gshockv.developerslife.ui.stream.view.MarginItemDecoration
+import com.gshockv.developerslife.ui.utils.GlideApp
+import com.gshockv.developerslife.ui.utils.MyGlideExtension
+import kotlinx.android.synthetic.main.card_gif_item.view.*
 import kotlinx.android.synthetic.main.fragment_stream.*
 
 class StreamFragment : Fragment() {
@@ -69,7 +75,7 @@ class StreamFragment : Fragment() {
         })
     }
 
-    private class StreamListAdapter(val stream: GifStream) : RecyclerView.Adapter<ItemViewHolder>() {
+    private inner class StreamListAdapter(val stream: GifStream) : RecyclerView.Adapter<ItemViewHolder>() {
         override fun getItemCount() = stream.items.size
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -81,9 +87,12 @@ class StreamFragment : Fragment() {
         }
     }
 
-    private class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind() {
-
+    private inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind() = with(itemView) {
+            GlideApp.with(itemView.context)
+                .load(R.drawable.img_item_placeholder)
+                .apply(MyGlideExtension.roundedCorners(itemView.context, RequestOptions(), 24))
+                .into(imageViewPreview)
         }
     }
 }
