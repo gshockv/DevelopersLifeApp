@@ -5,20 +5,26 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorSurface"
         tools:context=".ui.stream.StreamFragment">
 
-    <com.google.android.material.appbar.CollapsingToolbarLayout
+
+    <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
-        <TextView
-                android:id="@+id/textViewHeader"
-                style="@style/streamHeaderText"
-                android:text="Stream Header"
-                android:layout_gravity="top"/>
+            <TextView
+                    android:id="@+id/textViewHeader"
+                    style="@style/streamHeaderText"
+                    tools:text="Stream Header"/>
 
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewStream"
@@ -32,7 +38,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:navigationIcon="@drawable/ic_menu_black_24dp"
-            app:backgroundTint="@color/colorPrimary"
-            app:hideOnScroll="true"/>
+            app:backgroundTint="@color/colorBottomAppBar"
+            app:hideOnScroll="true"
+            app:fabAlignmentMode="end"
+            app:fabAnimationMode="scale" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabReload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_anchor="@id/bottomAppBar"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorAccent"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_reload_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.gshockv.developerslife.R
 import com.gshockv.developerslife.data.StreamType
-import com.gshockv.developerslife.ui.view.MenuItemView
+import com.gshockv.developerslife.ui.stream.view.MenuItemView
 
 
 class BottomNavigationDialog : BottomSheetDialogFragment() {

@@ -14,25 +14,25 @@
             android:paddingBottom="8dp"
             android:background="@drawable/main_menu_background">
 
-        <com.gshockv.developerslife.ui.view.MenuItemView
+        <com.gshockv.developerslife.ui.stream.view.MenuItemView
                 android:id="@+id/menuItemLatest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:menuIcon="@drawable/ic_menu_latest"
                 app:menuTitle="@string/menu_item_latest"/>
-        <com.gshockv.developerslife.ui.view.MenuItemView
+        <com.gshockv.developerslife.ui.stream.view.MenuItemView
                 android:id="@+id/menuItemHot"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:menuIcon="@drawable/ic_menu_hot"
                 app:menuTitle="@string/menu_item_hot"/>
-        <com.gshockv.developerslife.ui.view.MenuItemView
+        <com.gshockv.developerslife.ui.stream.view.MenuItemView
                 android:id="@+id/menuItemTop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:menuIcon="@drawable/ic_menu_top"
                 app:menuTitle="@string/menu_item_top"/>
-        <com.gshockv.developerslife.ui.view.MenuItemView
+        <com.gshockv.developerslife.ui.stream.view.MenuItemView
                 android:id="@+id/menuItemRandom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

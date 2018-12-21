@@ -1,17 +1,20 @@
 package com.gshockv.developerslife.ui.stream
 
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.gshockv.developerslife.R
+import com.gshockv.developerslife.data.GifStream
 import com.gshockv.developerslife.data.StreamType
 import com.gshockv.developerslife.data.header
+import com.gshockv.developerslife.ui.stream.view.MarginItemDecoration
 import kotlinx.android.synthetic.main.fragment_stream.*
 
 class StreamFragment : Fragment() {
@@ -25,6 +28,8 @@ class StreamFragment : Fragment() {
         }
     }
 
+    private lateinit var streamAdapter: StreamListAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_stream, container, false)
     }
@@ -37,6 +42,14 @@ class StreamFragment : Fragment() {
                 selectedStream = viewModel.currentStreamType()
             }.show(fragmentManager!!, BottomNavigationDialog.TAG)
         }
+
+        recyclerViewStream.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recyclerViewStream.setHasFixedSize(true)
+        recyclerViewStream.addItemDecoration(MarginItemDecoration(
+            resources.getDimension(R.dimen.default_item_padding).toInt())
+        )
+
+        fabReload.setColorFilter(Color.WHITE)
     }
 
     override fun onResume() {
@@ -50,11 +63,27 @@ class StreamFragment : Fragment() {
 
         viewModel.loadStream(type).observe(this, Observer { stream ->
             stream?.let {
-                Toast.makeText(context, "$type loaded", Toast.LENGTH_SHORT).show()
-                it.items.forEach { item ->
-                    Log.d("GifItem", "Item: $item")
-                }
+                streamAdapter = StreamListAdapter(it)
+                recyclerViewStream.adapter = streamAdapter
             }
         })
+    }
+
+    private class StreamListAdapter(val stream: GifStream) : RecyclerView.Adapter<ItemViewHolder>() {
+        override fun getItemCount() = stream.items.size
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+            return ItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_gif_item, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+            holder.bind()
+        }
+    }
+
+    private class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind() {
+
+        }
     }
 }

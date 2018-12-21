@@ -1,4 +1,4 @@
-package com.gshockv.developerslife.ui.view
+package com.gshockv.developerslife.ui.stream.view
 
 import android.content.Context
 import android.content.res.ColorStateList
