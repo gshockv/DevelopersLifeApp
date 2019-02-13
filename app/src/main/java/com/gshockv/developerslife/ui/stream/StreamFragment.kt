@@ -43,11 +43,11 @@ class StreamFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bottomAppBar.setNavigationOnClickListener {
-            menuDialog.apply {
-                selectedStream = viewModel.currentStreamType()
-            }.show(fragmentManager!!, BottomNavigationDialog.TAG)
-        }
+//        bottomAppBar.setNavigationOnClickListener {
+//            menuDialog.apply {
+//                selectedStream = viewModel.currentStreamType()
+//            }.show(fragmentManager!!, BottomNavigationDialog.TAG)
+//        }
 
         recyclerViewStream.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerViewStream.setHasFixedSize(true)
@@ -55,7 +55,7 @@ class StreamFragment : Fragment() {
             resources.getDimension(R.dimen.default_item_padding).toInt())
         )
 
-        fabReload.setColorFilter(Color.WHITE)
+//        fabReload.setColorFilter(Color.WHITE)
     }
 
     override fun onResume() {

@@ -2,4 +2,9 @@
 <resources>
     <dimen name="menuIconSize">24dp</dimen>
     <dimen name="default_item_padding">20dp</dimen>
+    <dimen name="gifItemCardElevation">4dp</dimen>
+    <dimen name="gifItemCardCornerRadius">10dp</dimen>
+    <dimen name="gifItemCardHeight">260dp</dimen>
+    <dimen name="textViewItemNameHeight">120dp</dimen>
+    <dimen name="gifItemRatingSize">40dp</dimen>
 </resources>

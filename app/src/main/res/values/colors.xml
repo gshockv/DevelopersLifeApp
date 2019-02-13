@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ecd9d0</color>
-    <color name="colorPrimaryDark">#ecccbb</color>
-    <color name="colorAccent">#d9618c</color>
-    <color name="colorSurface">#f4f5f0</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#9C27B0</color>
+    <color name="colorSurface">#FFFFFF</color>
     <color name="colorBottomAppBar">#dedede</color>
+
+    <color name="colorStreamHeader">#160A2B</color>
 
     <color name="menuCheckedColor">#a66d0f8f</color>
     <color name="menuIconDefaultTint">#a63e3e3e</color>

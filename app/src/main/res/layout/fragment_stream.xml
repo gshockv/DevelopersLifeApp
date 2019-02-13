@@ -11,7 +11,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent">
         <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
@@ -32,6 +32,7 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
+    <!--
     <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
@@ -51,5 +52,7 @@
             app:backgroundTint="@color/colorAccent"
             app:fabSize="normal"
             app:srcCompat="@drawable/ic_reload_24dp" />
+
+    -->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

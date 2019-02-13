@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSurface">@color/colorSurface</item>
+
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
 
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
@@ -24,11 +26,15 @@
     <style name="streamHeaderText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textSize">22sp</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingBottom">12dp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textColor">@color/colorStreamHeader</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+
+        <item name="android:paddingStart">24dp</item>
     </style>
 
     <style name="menuItemText">
@@ -38,6 +44,28 @@
         <item name="android:clickable">true</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/menuItemTextColor</item>
+    </style>
+
+    <style name="gifItemName">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/textViewItemNameHeight</item>
+        <item name="android:background">@drawable/bg_black_to_transparent_gradient</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="gifItemRating">
+        <item name="android:layout_width">@dimen/gifItemRatingSize</item>
+        <item name="android:layout_height">@dimen/gifItemRatingSize</item>
+        <item name="android:background">@drawable/bg_circle_item_rating</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+
     </style>
 
 </resources>
