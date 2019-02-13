@@ -2,6 +2,7 @@ package com.gshockv.developerslife.data
 
 object StreamRepository {
 
+    const val BASE_URL = "http://developerslife.ru"
 
     fun loadStream(stream: StreamType) : GifStream {
         return fakeStream()
