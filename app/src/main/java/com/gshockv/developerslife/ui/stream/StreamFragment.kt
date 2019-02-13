@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -24,7 +25,7 @@ import kotlinx.android.synthetic.main.card_gif_item.view.*
 import kotlinx.android.synthetic.main.fragment_stream.*
 
 class StreamFragment : Fragment() {
-    private val viewModel : StreamViewModel by lazy {
+    private val viewModel: StreamViewModel by lazy {
         ViewModelProviders.of(activity!!).get(StreamViewModel::class.java)
     }
 
@@ -51,8 +52,10 @@ class StreamFragment : Fragment() {
 
         recyclerViewStream.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerViewStream.setHasFixedSize(true)
-        recyclerViewStream.addItemDecoration(MarginItemDecoration(
-            resources.getDimension(R.dimen.default_item_padding).toInt())
+        recyclerViewStream.addItemDecoration(
+            MarginItemDecoration(
+                resources.getDimension(R.dimen.default_item_padding).toInt()
+            )
         )
 
 //        fabReload.setColorFilter(Color.WHITE)
@@ -89,10 +92,20 @@ class StreamFragment : Fragment() {
 
     private inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() = with(itemView) {
-            GlideApp.with(itemView.context)
-                .load(R.drawable.img_item_placeholder)
-                .apply(MyGlideExtension.roundedCorners(itemView.context, RequestOptions(), 24))
-                .into(imageViewPreview)
+
+            imageViewPreview.let {
+                GlideApp.with(itemView.context)
+                    .load(R.drawable.img_item_placeholder)
+                    .into(it)
+
+                it.setOnClickListener {
+                    Toast.makeText(itemView.context, "Item Clicked...", Toast.LENGTH_SHORT).show()
+                }
+                it.setOnLongClickListener {
+                    Toast.makeText(itemView.context, "LONG CLICK", Toast.LENGTH_SHORT).show()
+                    true
+                }
+            }
         }
     }
 }
